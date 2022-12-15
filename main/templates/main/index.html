@@ -1,0 +1,9 @@
+{% if latest_list %}
+    <ul>
+    {% for list in latest_list %}
+        <li><a href="{% url 'shopView' list.id %}">List {{list.id}} : {{ list.pubDate }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No shopping lists are available.</p>
+{% endif %}

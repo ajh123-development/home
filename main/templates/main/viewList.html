@@ -1,0 +1,31 @@
+<h1>Viewing list {{listID}}</h1>
+<h3>Published: {{list.pubDate}}</h3>
+<hr>
+
+{% if list.items.all %}
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Amount</th>
+            <th>Price</th>
+        </tr>
+        {% for item in list.items.all %}
+        <tr>
+            <td>{{item.item.name}}</td>
+            <td>{{item.numberWanted}}</td>
+            <td>£{{item.getTotalPrice}}</td>
+        </tr>
+        {% endfor %}
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td><b>Total</b></td>
+            <td>{{list.getTotalCount}}</td>
+            <td>£{{list.getTotalPrice}}</td>
+        </tr>
+    </table>
+    
+{% else %}
+    <p>No items are available.</p>
+{% endif %}
+<hr>
